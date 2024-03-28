@@ -1,5 +1,11 @@
 # A Simple LaunchBar Action to work with Docker containers
 
+## Installation
+
+- Checkout repo into a folder named "DWDocker.lbaction"
+- Double click to install into LaunchBar
+
+
 ## Usage
 
 Activate without Paramters (simply press return):
