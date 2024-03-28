@@ -2,8 +2,11 @@
 
 ## Installation
 
-- Checkout repo into a folder named "DWDocker.lbaction"
+- Checkout repo (should generated folder "DWDocker.lbaction"
+- Locate DWDocker.lbaction in Finder
 - Double click to install into LaunchBar
+
+*(The last step will actually copy it over into `~/Library/Application Support/LaunchBar/Actions/`, so you can delete the original*
 
 
 ## Usage
