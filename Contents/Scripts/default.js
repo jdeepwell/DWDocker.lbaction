@@ -22,7 +22,7 @@ function run(argument)
         for (let i = 0; i < containers.length; i++) {
             let result = LaunchBar.execute('/usr/local/bin/docker', 'inspect', '--format', '{{.State.Status}}', containers[i].id);
             containers[i].status = result.trim();
-            containers[i].statusIcon = containers[i].status == "running" ? "🟢" : "🔴";
+            containers[i].statusIcon = containers[i].status == "running" ? "🏃" : "😴";
         }
 
         // loop over containers and create LaunchBar items
