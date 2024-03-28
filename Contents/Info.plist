@@ -3,11 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>docker icon.png</string>
+	<string>DWDocker.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.LaunchBar.action.NewAction</string>
+	<string>at.deepwell.LaunchBar.action.dwdocker</string>
 	<key>CFBundleName</key>
 	<string>DWDocker</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.apple.Terminal</string>
 	<key>LBDebugLogEnabled</key>
@@ -15,13 +17,15 @@
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
-		<string></string>
+		<string>Johannes Tiefenbrunner</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>dwdocker@deepwell.at</string>
+		<key>LBSummary</key>
+		<string>A simple Action to work with Docker containers</string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
-		<string></string>
+		<string>https://deepwell.at</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string>com.apple.Terminal</string>
@@ -43,5 +47,7 @@
 			<string>default.js</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>(C) 2024 Deepwell.at</string>
 </dict>
 </plist>
