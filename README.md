@@ -15,7 +15,9 @@ Activate without Paramters (simply press return):
 Lists all containers (running and exited)
 
 Choose one of the containers and press return:
-Presents list of availale actions:
+Presents list of available actions
+
+Actions:
 
 If container is running:
   - Stop
