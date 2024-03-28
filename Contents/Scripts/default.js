@@ -22,6 +22,7 @@ function run(argument)
         for (let i = 0; i < containers.length; i++) {
             let result = LaunchBar.execute('/usr/local/bin/docker', 'inspect', '--format', '{{.State.Status}}', containers[i].id);
             containers[i].status = result.trim();
+            containers[i].statusIcon = containers[i].status == "running" ? "🟢" : "🔴";
         }
 
         // loop over containers and create LaunchBar items
@@ -32,8 +33,9 @@ function run(argument)
                 action: 'containerSelect',
                 actionArgument: {
                     id: containers[i].id,
-                    status: containers[i].status
-                }
+                    status: containers[i].status,
+                },
+                icon: containers[i].statusIcon
             });
         }
         return items;
@@ -46,26 +48,31 @@ function containerSelect(arg)
     let items = [];
     if (arg.status == 'running') {
         items.push({
-            title: 'Stop',
-            action: 'containerStop',
-            actionArgument: arg
+            title: 'Shell',
+            action: 'containerShell',
+            actionArgument: arg,
+            icon: '🐚'
         });
         items.push({
             title: 'Restart',
             action: 'containerRestart',
-            actionArgument: arg
+            actionArgument: arg,
+            icon: '🔄'
         });
         items.push({
-            title: 'Shell',
-            action: 'containerShell',
-            actionArgument: arg
+            title: 'Stop',
+            action: 'containerStop',
+            actionArgument: arg,
+            icon: '🛑',
+            actionRunsInBackground: true
         });
     }
     else {
         items.push({
             title: 'Start',
             action: 'containerStart',
-            actionArgument: arg
+            actionArgument: arg,
+            icon: '🚀'
         });
     }
     return items;
@@ -79,8 +86,9 @@ function containerStart(arg)
 
 function containerStop(arg)
 {
+    LaunchBar.hide();
     LaunchBar.execute('/usr/local/bin/docker', 'stop', arg.id);
-    return containerSelect({id: arg.id, status: 'exited'});
+    // return containerSelect({id: arg.id, status: 'exited'});
 }
 
 function containerRestart(arg)
