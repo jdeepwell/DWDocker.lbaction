@@ -101,8 +101,11 @@ function containerShell(arg)
 {
     // open a terminal window and enter a bash in that container:
     // osascript -e 'tell app "Terminal" to do script "..."' 
-    LaunchBar.executeAppleScript('tell application "Terminal" to do script "docker exec -it ' + arg.id + ' bash"');
-    // Bring Terminal to front
-    LaunchBar.executeAppleScript('tell application "Terminal" to activate');
+    // LaunchBar.executeAppleScript('tell application "Terminal" to do script "docker exec -it ' + arg.id + ' bash"');
+    // // Bring Terminal to front
+    // LaunchBar.executeAppleScript('tell application "Terminal" to activate');
+
+    LaunchBar.executeAppleScript('tell application "iTerm" to create window with default profile command "/usr/local/bin/docker exec -it ' + arg.id + ' bash"');
+
     LaunchBar.hide();
 }
